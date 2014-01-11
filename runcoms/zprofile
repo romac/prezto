@@ -3,6 +3,7 @@
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Romain Ruetschi <romain.ruetschi@gmail.com>
 #
 
 #
@@ -17,8 +18,11 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='/usr/local/bin/subl -w -n'
+export VISUAL=$EDITOR
+export SVN_EDITOR=$EDITOR
+export GIT_EDITOR=$EDITOR
+export GEM_OPEN_EDITOR=$EDITOR
 export PAGER='less'
 
 #
@@ -27,6 +31,7 @@ export PAGER='less'
 
 if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
+  export LC_CTYPE='en_US.UTF-8'
 fi
 
 #
@@ -43,9 +48,47 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  /usr/local/{bin,sbin}
+  $HOME/.bin                                # Personal
+  /usr/local/{bin,sbin}                     # Homebrew
+  /usr/local/share/npm/bin                  # NPM
+  /usr/local/texlive/2012/bin/x86_64-darwin # MacTeX 2012
+  /usr/local/{rock,ooc}/bin                 # ooc
+  /usr/local/share/python                   # Python
+  $HOME/.rbenv/shims                        # rbenv
+  $HOME/.cabal/bin                          # Cabal
+  $HOME/.bin/emsdk
+  $HOME/.bin/emsdk/clang/3.2_64bit/bin
+  # $HOME/.bin/emsdk/node/0.10.18_64bit/bin
+  $HOME/.bin/emsdk/emscripten/1.5.6
   $path
 )
+
+fpath=(
+  /usr/local/share/zsh/site-functions
+  $fpath
+)
+
+# Go
+export GOPATH=$HOME/.go
+
+# Node modules path
+export NODE_PATH=$NODE_PATH:/usr/local/share/npm/lib/node_modules
+
+# Rock distribution path
+export ROCK_DIST=/usr/local/rock
+export OOC_LIBS=/usr/local/ooc
+
+# Urbit
+export URBIT_HOME=~/Projects/urbit/urb
+
+# Ruby
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+#
+# OpenSSL Certificates
+#
+
+export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
 #
 # Less
