@@ -26,13 +26,22 @@ export GEM_OPEN_EDITOR=$EDITOR
 export PAGER='less'
 
 #
+# Aliases
+#
+source $HOME/.aliases
+
+#
 # Language
 #
 
-if [[ -z "$LANG" ]]; then
-  export LANG='en_US.UTF-8'
-  export LC_CTYPE='en_US.UTF-8'
-fi
+# if [[ -z "$LANG" ]]; then
+export LANG='en_US.UTF-8'
+export LANGUAGE=$LANG
+export LC_CTYPE=$LANG
+# fi
+
+# Java default file encoding
+export JAVA_OPTS="-Dfile.encoding=UTF-8 $JAVA_OPTS"
 
 #
 # Paths
@@ -84,11 +93,11 @@ export URBIT_HOME=~/Projects/urbit/urb
 # Ruby
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-#
 # OpenSSL Certificates
-#
-
 export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+
+# Disable Homebrew Emojis
+export HOMEBREW_NO_EMOJI=1
 
 #
 # Less
