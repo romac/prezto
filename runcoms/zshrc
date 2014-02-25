@@ -11,3 +11,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# Source Z.
+if [[ -s "/usr/local/etc/profile.d/z.sh" ]]; then
+  source /usr/local/etc/profile.d/z.sh
+fi
+
