@@ -26,11 +26,6 @@ export GEM_OPEN_EDITOR=$EDITOR
 export PAGER='less'
 
 #
-# Aliases
-#
-source $HOME/.aliases
-
-#
 # Language
 #
 
@@ -42,6 +37,15 @@ export LC_CTYPE=$LANG
 
 # Java default file encoding
 export JAVA_OPTS="-Dfile.encoding=UTF-8 $JAVA_OPTS"
+
+# Use Java 6
+# export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+
+# Python Virtualenv
+# export WORKON_HOME=$HOME/.virtualenvs
+# export PROJECT_HOME=$HOME/Projects
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+source /usr/local/bin/virtualenvwrapper.sh
 
 #
 # Paths
@@ -62,18 +66,21 @@ path=(
   /usr/local/share/npm/bin                  # NPM
   /usr/local/texlive/2012/bin/x86_64-darwin # MacTeX 2012
   /usr/local/{rock,ooc}/bin                 # ooc
-  /usr/local/share/python                   # Python
+  # /usr/local/share/python                   # Python
+  /usr/local/google-cloud-sdk/bin           # Google Cloud SDK
   $HOME/.rbenv/shims                        # rbenv
   $HOME/.cabal/bin                          # Cabal
-  $HOME/.bin/emsdk
-  $HOME/.bin/emsdk/clang/3.2_64bit/bin
-  # $HOME/.bin/emsdk/node/0.10.18_64bit/bin
-  $HOME/.bin/emsdk/emscripten/1.5.6
   $path
+
+  # $HOME/.bin/emsdk                          # Emscripten
+  # $HOME/.bin/emsdk/clang/3.2_64bit/bin
+  # $HOME/.bin/emsdk/node/0.10.18_64bit/bin
+  # $HOME/.bin/emsdk/emscripten/1.5.6
 )
 
 fpath=(
   /usr/local/share/zsh/site-functions
+  /usr/local/google-cloud-sdk/completion
   $fpath
 )
 

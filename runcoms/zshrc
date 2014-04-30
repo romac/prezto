@@ -17,3 +17,15 @@ if [[ -s "/usr/local/etc/profile.d/z.sh" ]]; then
   source /usr/local/etc/profile.d/z.sh
 fi
 
+# Source Tmuxinator.
+if [[ -s "$HOME/.dotfiles/tmuxinator.zsh" ]]; then
+  source $HOME/.dotfiles/tmuxinator.zsh
+fi
+
+#
+# Source Aliases
+#
+if [[ -s "$HOME/.aliases" ]]; then
+  source $HOME/.aliases
+fi
+
