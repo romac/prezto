@@ -18,7 +18,7 @@ fi
 # Editors
 #
 
-export EDITOR='/usr/local/bin/subl -w -n'
+export EDITOR='vim'
 export VISUAL=$EDITOR
 export SVN_EDITOR=$EDITOR
 export GIT_EDITOR=$EDITOR
@@ -46,6 +46,15 @@ export JAVA_OPTS="-Dfile.encoding=UTF-8 $JAVA_OPTS"
 # export PROJECT_HOME=$HOME/Projects
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 source /usr/local/bin/virtualenvwrapper.sh
+
+# Nix
+# source $HOME/.nix-profile/etc/profile.d/nix.sh
+
+# Android Dev Tools
+export ANDROID_HOME=/usr/local/opt/android-sdk
+
+# Rust
+RUSTUP_PREFIX=/usr/local/rust
 
 #
 # Paths
