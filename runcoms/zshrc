@@ -29,3 +29,8 @@ if [[ -s "$HOME/.aliases" ]]; then
   source $HOME/.aliases
 fi
 
+#
+# Stack autocompletion
+#
+eval "$(stack --bash-completion-script "$(which stack)")"
+
