@@ -6,6 +6,14 @@
 #
 
 #
+# Additional sources
+#
+
+source "${ZDOTDIR:-$HOME}"/.zprezto/sources/get-short-path.zsh
+source "${ZDOTDIR:-$HOME}"/.zprezto/sources/parse-git-dirty.zsh
+source "${ZDOTDIR:-$HOME}"/.zprezto/sources/haskell-prompt-info.zsh
+
+#
 # Version Check
 #
 
