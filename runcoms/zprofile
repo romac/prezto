@@ -71,14 +71,27 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that Zsh searches for programs.
 path=(
   $HOME/.bin                                # Personal
+  $HOME/.local/bin                          # Stack
+  $HOME/.local/ghcjs                        # GHCJS
+  $HOME/.rbenv/shims                        # rbenv
+  $HOME/.cabal/bin                          # Cabal
+  $HOME/.go/bin                             # Go
+  $HOME/.local/bin                          # Local Stack binaries
+  $HOME/.jenv/bin
+  ./node_modules/.bin                       # node_modules binaries
   /usr/local/{bin,sbin}                     # Homebrew
   /usr/local/share/npm/bin                  # NPM
-  /usr/local/texlive/2012/bin/x86_64-darwin # MacTeX 2012
+  /usr/local/texlive/2015/bin/x86_64-darwin # MacTeX 2015
   /usr/local/{rock,ooc}/bin                 # ooc
   # /usr/local/share/python                   # Python
   /usr/local/google-cloud-sdk/bin           # Google Cloud SDK
-  $HOME/.rbenv/shims                        # rbenv
-  $HOME/.cabal/bin                          # Cabal
+  /usr/local/ghc/bin                        # GHC
+  $RUSTUP_PREFIX/bin                        # Rust
+  /usr/local/mysql/bin                      # MySQL
+  /usr/local/coq/bin                        # Coq
+  /usr/local/activator/bin                  # Activator
+  /usr/local/infer/infer/infer/bin          # Infer
+  /usr/local/stack/bin                      # Stack
   $path
 
   # $HOME/.bin/emsdk                          # Emscripten
@@ -93,11 +106,20 @@ fpath=(
   $fpath
 )
 
+export DYLD_LIBRARY_PATH=/usr/local/rust/lib:$DYLD_LIBRARY_PATH
+
+# JEnv
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
 # Go
 export GOPATH=$HOME/.go
 
+# NVM
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 # Node modules path
-export NODE_PATH=$NODE_PATH:/usr/local/share/npm/lib/node_modules
+export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
 
 # Rock distribution path
 export ROCK_DIST=/usr/local/rock
@@ -114,10 +136,6 @@ export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
 # Disable Homebrew Emojis
 export HOMEBREW_NO_EMOJI=1
-
-#
-# Less
-#
 
 # Set the default Less options.
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
@@ -143,3 +161,13 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
+
+# Neovim
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+# OPAM
+eval `opam config env`
+
+# OPAM configuration
+. /Users/romac/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
