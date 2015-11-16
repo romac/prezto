@@ -35,12 +35,6 @@ export LANGUAGE=$LANG
 export LC_CTYPE=$LANG
 # fi
 
-# Java default file encoding
-export JAVA_OPTS="-Dfile.encoding=UTF-8 $JAVA_OPTS"
-
-# Use Java 6
-# export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
-
 # Python Virtualenv
 # export WORKON_HOME=$HOME/.virtualenvs
 # export PROJECT_HOME=$HOME/Projects
@@ -92,6 +86,7 @@ path=(
   /usr/local/activator/bin                  # Activator
   /usr/local/infer/infer/infer/bin          # Infer
   /usr/local/stack/bin                      # Stack
+  /usr/local/ipfs/bin                       # IPFS
   $path
 
   # $HOME/.bin/emsdk                          # Emscripten
@@ -110,6 +105,12 @@ export DYLD_LIBRARY_PATH=/usr/local/rust/lib:$DYLD_LIBRARY_PATH
 
 # JEnv
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
+# Java default file encoding
+export JAVA_OPTS="-Dfile.encoding=UTF-8 $JAVA_OPTS"
+
+# Java 8
+export JAVA_HOME=$(/usr/libexec/java_home -v `cat ~/.jenv/version`)
 
 # Go
 export GOPATH=$HOME/.go

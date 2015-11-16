@@ -34,3 +34,11 @@ fi
 #
 eval "$(stack --bash-completion-script "$(which stack)")"
 
+
+# Travis
+[ -f /Users/romac/.travis/travis.sh ] && source /Users/romac/.travis/travis.sh
+
+# Base16 Shell
+# BASE16_SHELL="$HOME/.base16-shell/base16-tomorrow.dark.sh"
+# [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
