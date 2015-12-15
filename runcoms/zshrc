@@ -5,28 +5,25 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-# Source Prezto.
+#
+# Prezto
+#
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-
-# Source Z.
+#
+# Z
+#
 if [[ -s "/usr/local/etc/profile.d/z.sh" ]]; then
   source /usr/local/etc/profile.d/z.sh
 fi
 
-# Source Tmuxinator.
+#
+# Tmuxinator
+#
 if [[ -s "$HOME/.dotfiles/tmuxinator.zsh" ]]; then
   source $HOME/.dotfiles/tmuxinator.zsh
-fi
-
-#
-# Source Aliases
-#
-if [[ -s "$HOME/.aliases" ]]; then
-  source $HOME/.aliases
 fi
 
 #
@@ -34,11 +31,53 @@ fi
 #
 eval "$(stack --bash-completion-script "$(which stack)")"
 
+#
+# NVM
+#
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 
+#
+# Ruby
+#
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+#
+# Python Virtualenv
+#
+# export WORKON_HOME=$HOME/.virtualenvs
+# export PROJECT_HOME=$HOME/Projects
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+source /usr/local/bin/virtualenvwrapper.sh
+
+#
+# Nix
+#
+# source $HOME/.nix-profile/etc/profile.d/nix.sh
+
+#
 # Travis
-[ -f /Users/romac/.travis/travis.sh ] && source /Users/romac/.travis/travis.sh
+#
+if [[ -s $HOME/.travis/travis.sh ]]; then
+  source $HOME/.travis/travis.sh;
+fi
 
+#
+# JEnv
+#
+if which jenv > /dev/null; then
+  eval "$(jenv init -)";
+fi
+
+#
 # Base16 Shell
+#
 # BASE16_SHELL="$HOME/.base16-shell/base16-tomorrow.dark.sh"
 # [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
+#
+# Source Aliases
+#
+if [[ -s "$HOME/.aliases" ]]; then
+  source $HOME/.aliases
+fi

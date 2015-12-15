@@ -35,15 +35,6 @@ export LANGUAGE=$LANG
 export LC_CTYPE=$LANG
 # fi
 
-# Python Virtualenv
-# export WORKON_HOME=$HOME/.virtualenvs
-# export PROJECT_HOME=$HOME/Projects
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-source /usr/local/bin/virtualenvwrapper.sh
-
-# Nix
-# source $HOME/.nix-profile/etc/profile.d/nix.sh
-
 # Android Dev Tools
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
@@ -84,6 +75,7 @@ path=(
   /usr/local/mysql/bin                      # MySQL
   /usr/local/coq/bin                        # Coq
   /usr/local/activator/bin                  # Activator
+  /usr/local/scalajs/bin                    # Scala.js
   /usr/local/infer/infer/infer/bin          # Infer
   /usr/local/stack/bin                      # Stack
   /usr/local/ipfs/bin                       # IPFS
@@ -103,9 +95,6 @@ fpath=(
 
 export DYLD_LIBRARY_PATH=/usr/local/rust/lib:$DYLD_LIBRARY_PATH
 
-# JEnv
-if which jenv > /dev/null; then eval "$(jenv init -)"; fi
-
 # Java default file encoding
 export JAVA_OPTS="-Dfile.encoding=UTF-8 $JAVA_OPTS"
 
@@ -115,22 +104,14 @@ export JAVA_HOME=$(/usr/libexec/java_home -v `cat ~/.jenv/version`)
 # Go
 export GOPATH=$HOME/.go
 
-# NVM
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
-
 # Node modules path
 export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
 
 # Rock distribution path
-export ROCK_DIST=/usr/local/rock
-export OOC_LIBS=/usr/local/ooc
+export OOC_LIBS=/usr/local/ooc:/usr/local/Cellar/rock/HEAD
 
 # Urbit
 export URBIT_HOME=~/Projects/urbit/urb
-
-# Ruby
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # OpenSSL Certificates
 export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
