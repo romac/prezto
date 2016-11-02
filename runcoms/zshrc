@@ -5,6 +5,9 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+autoload bashcompinit
+bashcompinit
+
 #
 # Prezto
 #
@@ -32,12 +35,6 @@ fi
 eval "$(stack --bash-completion-script "$(which stack)")"
 
 #
-# NVM
-#
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
-
-#
 # Ruby
 #
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -47,8 +44,8 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 #
 # export WORKON_HOME=$HOME/.virtualenvs
 # export PROJECT_HOME=$HOME/Projects
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-source /usr/local/bin/virtualenvwrapper.sh
+# export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+# source /usr/local/bin/virtualenvwrapper.sh
 
 #
 # Nix
@@ -58,9 +55,9 @@ source /usr/local/bin/virtualenvwrapper.sh
 #
 # Travis
 #
-if [[ -s $HOME/.travis/travis.sh ]]; then
-  source $HOME/.travis/travis.sh;
-fi
+# if [[ -s $HOME/.travis/travis.sh ]]; then
+#   source $HOME/.travis/travis.sh;
+# fi
 
 #
 # JEnv
@@ -81,3 +78,4 @@ fi
 if [[ -s "$HOME/.aliases" ]]; then
   source $HOME/.aliases
 fi
+

@@ -12,7 +12,7 @@ function haskell_info() {
 }
 
 function stack_info() {
-    ghc_version=`stack ghc --version | rev | cut -d' ' -f 1 | rev`
+    ghc_version=`stack ghc -- --version | rev | cut -d' ' -f 1 | rev`
     resolver_yaml=`cat stack.yaml | grep resolver | cut -d' ' -f 2`
     if [ -d ".stack-work/install/x86_64-osx/$resolver_yaml" ]; then
         ghc_stack=`ls .stack-work/install/x86_64-osx/$resolver_yaml/ | grep $ghc_version`

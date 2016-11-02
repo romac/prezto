@@ -18,7 +18,7 @@ fi
 # Editors
 #
 
-export EDITOR='vim'
+export EDITOR='nvim'
 export VISUAL=$EDITOR
 export SVN_EDITOR=$EDITOR
 export GIT_EDITOR=$EDITOR
@@ -41,6 +41,9 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 # Rust
 RUSTUP_PREFIX=/usr/local/rust
 
+# Node
+export NPM_PACKAGES="${HOME}/.npm-packages"
+
 #
 # Paths
 #
@@ -55,36 +58,32 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  $HOME/.bin                                # Personal
-  $HOME/.local/bin                          # Stack
-  $HOME/.local/ghcjs                        # GHCJS
-  $HOME/.rbenv/shims                        # rbenv
-  $HOME/.cabal/bin                          # Cabal
-  $HOME/.go/bin                             # Go
-  $HOME/.local/bin                          # Local Stack binaries
-  $HOME/.jenv/bin
-  ./node_modules/.bin                       # node_modules binaries
-  /usr/local/{bin,sbin}                     # Homebrew
-  /usr/local/share/npm/bin                  # NPM
-  /usr/local/texlive/2015/bin/x86_64-darwin # MacTeX 2015
-  /usr/local/{rock,ooc}/bin                 # ooc
-  # /usr/local/share/python                   # Python
-  /usr/local/google-cloud-sdk/bin           # Google Cloud SDK
-  /usr/local/ghc/bin                        # GHC
-  $RUSTUP_PREFIX/bin                        # Rust
-  /usr/local/mysql/bin                      # MySQL
-  /usr/local/coq/bin                        # Coq
-  /usr/local/activator/bin                  # Activator
-  /usr/local/scalajs/bin                    # Scala.js
-  /usr/local/infer/infer/infer/bin          # Infer
-  /usr/local/stack/bin                      # Stack
-  /usr/local/ipfs/bin                       # IPFS
+  $HOME/.bin                                              # Personal
+  $HOME/.local/bin                                        # Stack
+  $HOME/.local/ghcjs                                      # GHCJS
+  $HOME/.rbenv/shims                                      # rbenv
+  $HOME/.cabal/bin                                        # Cabal
+  $HOME/.go/bin                                           # Go
+  $HOME/.jenv/bin                                         # JEnv
+  $HOME/.composer/vendor/bin                              # PHP
+  $NPM_PACKAGES/bin                                       # NPM Packages
+  /usr/local/{bin,sbin}                                   # Homebrew
+  /usr/local/share/npm/bin                                # NPM
+  /usr/local/texlive/2015/bin/x86_64-darwin               # MacTeX 2015
+  /usr/local/{rock,ooc}/bin                               # ooc
+  /usr/local/google-cloud-sdk/bin                         # Google Cloud SDK
+  /usr/local/ghc/bin                                      # GHC
+  $RUSTUP_PREFIX/bin                                      # Rust
+  /usr/local/mysql/bin                                    # MySQL
+  /Applications/Postgres.app/Contents/Versions/latest/bin # PostgreSQL
+  /usr/local/coq/bin                                      # Coq
+  /usr/local/activator/bin                                # Activator
+  /usr/local/scalajs/bin                                  # Scala.js
+  /usr/local/infer/infer/infer/bin                        # Infer
+  /usr/local/stack/bin                                    # Stack
+  /usr/local/ipfs/bin                                     # IPFS
+  /usr/local/saw/bin                                      # SAW
   $path
-
-  # $HOME/.bin/emsdk                          # Emscripten
-  # $HOME/.bin/emsdk/clang/3.2_64bit/bin
-  # $HOME/.bin/emsdk/node/0.10.18_64bit/bin
-  # $HOME/.bin/emsdk/emscripten/1.5.6
 )
 
 fpath=(
@@ -103,9 +102,6 @@ export JAVA_HOME=$(/usr/libexec/java_home -v `cat ~/.jenv/version`)
 
 # Go
 export GOPATH=$HOME/.go
-
-# Node modules path
-export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
 
 # Rock distribution path
 export OOC_LIBS=/usr/local/ooc:/usr/local/Cellar/rock/HEAD
