@@ -38,9 +38,6 @@ export LC_CTYPE=$LANG
 # Android Dev Tools
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
-# Rust
-RUSTUP_PREFIX=/usr/local/rust
-
 # Node
 export NPM_PACKAGES="${HOME}/.npm-packages"
 
@@ -73,16 +70,17 @@ path=(
   /usr/local/{rock,ooc}/bin                               # ooc
   /usr/local/google-cloud-sdk/bin                         # Google Cloud SDK
   /usr/local/ghc/bin                                      # GHC
-  $RUSTUP_PREFIX/bin                                      # Rust
   /usr/local/mysql/bin                                    # MySQL
   /Applications/Postgres.app/Contents/Versions/latest/bin # PostgreSQL
   /usr/local/coq/bin                                      # Coq
   /usr/local/activator/bin                                # Activator
   /usr/local/scalajs/bin                                  # Scala.js
-  /usr/local/infer/infer/infer/bin                        # Infer
+  /usr/local/infer/0.9.4.1/bin                            # Infer
   /usr/local/stack/bin                                    # Stack
   /usr/local/ipfs/bin                                     # IPFS
   /usr/local/saw/bin                                      # SAW
+  /usr/local/mongodb-3.4/bin                              # MongoDB
+  /usr/local/go/bin                                       # Go
   $path
 )
 
@@ -92,13 +90,11 @@ fpath=(
   $fpath
 )
 
-export DYLD_LIBRARY_PATH=/usr/local/rust/lib:$DYLD_LIBRARY_PATH
-
 # Java default file encoding
 export JAVA_OPTS="-Dfile.encoding=UTF-8 $JAVA_OPTS"
 
 # Java 8
-export JAVA_HOME=$(/usr/libexec/java_home -v `cat ~/.jenv/version`)
+# export JAVA_HOME=$(/usr/libexec/java_home -v `cat ~/.jenv/version`)
 
 # Go
 export GOPATH=$HOME/.go
@@ -144,8 +140,11 @@ fi
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 # OPAM
-eval `opam config env`
-
+# eval `opam config env`
+#
 # OPAM configuration
-. /Users/romac/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+# . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# Cargo
+source $HOME/.cargo/env
 
