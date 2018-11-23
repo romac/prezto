@@ -9,3 +9,7 @@
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+
+export EDITOR=nvim
+
+export RUST_SRC_PATH="$($HOME/.cargo/bin/rustc --print sysroot)/lib/rustlib/src/rust/src"

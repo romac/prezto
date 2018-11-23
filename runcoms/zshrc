@@ -10,4 +10,23 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+. "/usr/local/etc/profile.d/z.sh" > /dev/null 2> /dev/null || true
+
+. "$HOME/.aliases" > /dev/null 2> /dev/null || true
+
+. "$HOME/.opam/opam-init/init.zsh" > /dev/null 2> /dev/null || true
+
+export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+eval "$(/usr/local/bin/jenv init -)"
+
+# Travis
+if [ -e /Users/romac/.travis/travis.sh ]; then
+  . /Users/romac/.travis/travis.sh;
+fi # added by travis gem
+
+# Nix
+if [ -e /Users/romac/.nix-profile/etc/profile.d/nix.sh ]; then
+  . /Users/romac/.nix-profile/etc/profile.d/nix.sh;
+fi # added by Nix installer
+
