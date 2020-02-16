@@ -47,14 +47,22 @@ export GEM_HOME=$HOME/.gem
 # Go
 export GOPATH=$HOME/.go
 
+# Python
+export PYTHON_HOME=$HOME/Library/Python/3.7
+
+# Dotty
+export DOTTY_HOME=$HOME/Code/vendors/dotty
+
 # Set the list of directories that Zsh searches for programs.
 path=(
   $HOME/.bin
   $HOME/.local/bin
   $HOME/.cargo/bin
+  $HOME/.elan/bin
   $HOME/.gem/bin
   $GOPATH/bin
-  $HOME/Library/Python/3.6/bin
+  $DOTTY_HOME/bin
+  $PYTHON_HOME/bin
   /usr/local/{bin,sbin}
   /opt/local/{bin,sbin}
   $path
@@ -87,4 +95,5 @@ if [[ ! -d "$TMPDIR" ]]; then
   mkdir "$TMPDIR"
   chmod 700 "$TMPDIR"
 fi
+
 

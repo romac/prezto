@@ -4,6 +4,7 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
+#
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -16,9 +17,9 @@ fi
 
 . "$HOME/.opam/opam-init/init.zsh" > /dev/null 2> /dev/null || true
 
-export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
-
 eval "$(/usr/local/bin/jenv init -)"
+
+export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 # Travis
 if [ -e /Users/romac/.travis/travis.sh ]; then
@@ -30,3 +31,12 @@ if [ -e /Users/romac/.nix-profile/etc/profile.d/nix.sh ]; then
   . /Users/romac/.nix-profile/etc/profile.d/nix.sh;
 fi # added by Nix installer
 
+# Wasmer
+export WASMER_DIR="$HOME/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh" # This loads wasmer
+
+# Manta
+[ -s "$HOME/.config/manta/init.sh" ] && source "$HOME/.config/manta/init.sh"
+
+# SourceKit-LSP
+SOURCEKIT_TOOLCHAIN_PATH="/Library/Developer/Toolchains/swift-latest.xctoolchain"
